@@ -4,12 +4,12 @@ In this homework we'll prepare the environment
 and practice with Docker and SQL
 
 Quick Reference:
-- [Question 1 - Knowing docker tags](https://github.com/jeantozzi/data-engineering-zoomcamp-2023/edit/main/week_1/README.md#question-1-knowing-docker-tags)
-- [Question 2 - Understanding docker first run](https://github.com/jeantozzi/data-engineering-zoomcamp-2023/edit/main/week_1/README.md#question-2-understanding-docker-first-run)
-- [Question 3 - Count records](https://github.com/jeantozzi/data-engineering-zoomcamp-2023/edit/main/week_1/README.md#question-3-count-records)
-- [Question 4 - Largest trip for each day](https://github.com/jeantozzi/data-engineering-zoomcamp-2023/edit/main/week_1/README.md#question-4-largest-trip-for-each-day)
-- [Question 5 - The number of passengers](https://github.com/jeantozzi/data-engineering-zoomcamp-2023/edit/main/week_1/README.md#question-5-the-number-of-passengers)
-- [Question 6 - Largest tip](https://github.com/jeantozzi/data-engineering-zoomcamp-2023/edit/main/week_1/README.md#question-6-largest-tip)
+- [Question 1 - Knowing docker tags](https://github.com/jeantozzi/data-engineering-zoomcamp-2023/tree/main/week_1#question-1-knowing-docker-tags)
+- [Question 2 - Understanding docker first run](https://github.com/jeantozzi/data-engineering-zoomcamp-2023/tree/main/week_1#question-2-understanding-docker-first-run)
+- [Question 3 - Count records](https://github.com/jeantozzi/data-engineering-zoomcamp-2023/tree/main/week_1#question-3-count-records)
+- [Question 4 - Largest trip for each day](https://github.com/jeantozzi/data-engineering-zoomcamp-2023/tree/main/week_1#question-4-largest-trip-for-each-day)
+- [Question 5 - The number of passengers](https://github.com/jeantozzi/data-engineering-zoomcamp-2023/tree/main/week_1#question-5-the-number-of-passengers)
+- [Question 6 - Largest tip](https://github.com/jeantozzi/data-engineering-zoomcamp-2023/tree/main/week_1#question-6-largest-tip)
 
 ## Question 1. Knowing docker tags
 
@@ -26,7 +26,7 @@ Which tag has the following text? - *Write the image ID to the file*
 - `--idimage string`
 - `--idfile string`
 
-## Solution
+### Solution
 
 Command:
 ```
@@ -53,7 +53,7 @@ How many python packages/modules are installed?
 - 3
 - 7
 
-## Solution
+### Solution
 
 Command:
 ```
@@ -73,7 +73,7 @@ wheel      0.38.4
 Answer:
 `3`
 
-## Prepare Postgres
+### Prepare Postgres
 
 Run Postgres and load data as shown in the videos
 We'll use the green taxi trips from January 2019:
@@ -86,7 +86,7 @@ You will also need the dataset with zones:
 
 Download this data and put it into Postgres (with jupyter notebooks or with a pipeline)
 
-## Solution
+### Solution
 
 We'll use `docker-compose.yaml` and `ingest_data_homework` for this setup.
 
@@ -133,7 +133,7 @@ Remember that `lpep_pickup_datetime` and `lpep_dropoff_datetime` columns are in 
 - 17630
 - 21090
 
-## Solution
+### Solution
 
 Command:
 ```
@@ -161,7 +161,7 @@ Use the pick up time for your calculations.
 - 2019-01-15
 - 2019-01-10
 
-## Solution
+### Solution
 
 Command:
 ```
@@ -188,7 +188,7 @@ In 2019-01-01 how many trips had 2 and 3 passengers?
 - 2: 1282 ; 3: 254
 - 2: 1282 ; 3: 274
 
-## Solution
+### Solution
 
 Command:
 ```
@@ -224,7 +224,7 @@ Note: it's not a typo, it's `tip` , not `trip`
 - South Ozone Park
 - Long Island City/Queens Plaza
 
-## Solution
+### Solution
 
 Command:
 ```
