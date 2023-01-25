@@ -6,6 +6,7 @@ and practice with Docker and SQL
 Quick Reference:
 - [Question 1 - Knowing docker tags](https://github.com/jeantozzi/data-engineering-zoomcamp-2023/tree/main/week_1#question-1-knowing-docker-tags)
 - [Question 2 - Understanding docker first run](https://github.com/jeantozzi/data-engineering-zoomcamp-2023/tree/main/week_1#question-2-understanding-docker-first-run)
+- [Prepare Postgres](https://github.com/jeantozzi/data-engineering-zoomcamp-2023/tree/main/week_1/#prepare-postgres)
 - [Question 3 - Count records](https://github.com/jeantozzi/data-engineering-zoomcamp-2023/tree/main/week_1#question-3-count-records)
 - [Question 4 - Largest trip for each day](https://github.com/jeantozzi/data-engineering-zoomcamp-2023/tree/main/week_1#question-4-largest-trip-for-each-day)
 - [Question 5 - The number of passengers](https://github.com/jeantozzi/data-engineering-zoomcamp-2023/tree/main/week_1#question-5-the-number-of-passengers)
@@ -73,7 +74,7 @@ wheel      0.38.4
 Answer:
 `3`
 
-### Prepare Postgres
+## Prepare Postgres
 
 Run Postgres and load data as shown in the videos
 We'll use the green taxi trips from January 2019:
