@@ -89,7 +89,7 @@ Download this data and put it into Postgres (with jupyter notebooks or with a pi
 
 ### Solution
 
-We'll use `docker-compose.yaml` and `ingest_data_homework` for this setup.
+We'll use `docker-compose.yaml` and `ingest_data_homework.py` for this setup.
 
 ### Step 1
 We have to build the python ingestor image, so it will be available for us to run the container.
