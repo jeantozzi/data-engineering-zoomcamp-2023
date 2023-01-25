@@ -1,7 +1,7 @@
 # Homework repository for [DataTalksClub's Data Engineering Zoomcamp 2023 edition](https://airtable.com/shr6oVXeQvSI5HuWD)
 
 ### Quick Reference
-- [Week 1 - Introduction & Prerequisites](https://github.com/jeantozzi/data-engineering-zoomcamp-2023/tree/main/week_1)
+- [Week 1: Introduction & Prerequisites](https://github.com/jeantozzi/data-engineering-zoomcamp-2023/tree/main/week_1)
 - Week 2: Workflow Orchestration
 - Week 3: Data Warehouse
 - Week 4: Analytics Engineering
