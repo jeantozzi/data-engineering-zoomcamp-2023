@@ -100,7 +100,7 @@ Run `docker build -t ingestor .` while in the same folder as the `Dockerfile` fi
 You only need to run `docker-compose up -d` while in the same folder as the `docker-compose.yaml` file.
 
 ### Step 3
-Now that the RDBMS and the GUI Client are running, we can execute run the python ingestor container. It will download the taxi data based on the URL and ingest into Postgres.
+Now that the RDBMS and the GUI Client are running, we can run the python ingestor container. It will download the taxi data based on the URL and ingest into Postgres.
 Run the following commands:
 ```
 URL="https://github.com/DataTalksClub/nyc-tlc-data/releases/download/green/green_tripdata_2019-01.csv.gz"
