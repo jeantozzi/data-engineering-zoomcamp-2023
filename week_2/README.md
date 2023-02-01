@@ -95,6 +95,29 @@ Using the flow in `etl_web_to_gcs.py`, create a deployment to run on the first o
 
 ### Solution
 
+For that, you can check https://crontab.guru/ to access detailed information about cron notation and build your own.
+
+As a quick reference, the cron notation is composed of 5 differente parts (from left to right):
+- minute
+- hour
+- day (of the month)
+- month
+- day (of the week)
+
+Hence, for this particular question (first of every month at 5am UTC), we'll have this cron notation:
+```
+0 5 1 * *
+```
+
+To create, apply and run the deployment in question, we'll have the commands bellow:
+```
+prefect deployment build flows/question_1.py:etl_web_to_gcs -n question_01 -q default --cron "0 5 1 * *"
+prefect deployment apply etl_web_to_gcs-deployment.yaml
+prefect agen start -q "default"
+```
+
+Answer: `0 5 1 * *`
+
 ## Question 3. Loading data to BigQuery 
 
 Using `etl_gcs_to_bq.py` as a starting point, modify the script for extracting data from GCS and loading it into BigQuery. This new script should not fill or remove rows with missing values. (The script is really just doing the E and L parts of ETL).
