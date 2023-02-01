@@ -111,8 +111,7 @@ Hence, for this particular question (first of every month at 5am UTC), we'll hav
 
 To create, apply and run the deployment in question, we'll have the commands bellow:
 ```
-prefect deployment build flows/question_1.py:etl_web_to_gcs -n question_01 -q default --cron "0 5 1 * *"
-prefect deployment apply etl_web_to_gcs-deployment.yaml
+prefect deployment build flows/question_1.py:etl_web_to_gcs -n question_01 -q default --cron "0 5 1 * * --apply"
 prefect agen start -q "default"
 ```
 
@@ -138,6 +137,51 @@ Make sure you have the parquet data files for Yellow taxi data for Feb. 2019 and
 - 11,338,483
 
 ### Solution
+
+We'll run `prefect deployment build flows/question_3.py:etl_parent_flow -n question_03 -q default --apply` to create and apply the deployment.
+
+Next, it's necessary to have a agent running (`prefect agent start -q default`), so we can run the flow using the parameters listed in the question with the command below:
+
+`prefect deployment run etl-parent-flow/question_03 -p color="yellow" -p year=2019 -p months=[2,3]`
+
+As for the script itself, you can check [/flows/question_3.py](https://github.com/jeantozzi/data-engineering-zoomcamp-2023/blob/main/week_2/flows/question_1.py) for more detailed information.
+
+Setting a incrementary variable to keep track of the number of rows uploaded, so we can get the output for the answer:
+
+```
+@flow(log_prints=True)
+def etl_gcs_to_bq(color: str, year: int, month: int) -> int:
+    """"Main ETL flow to load data into BigQuery"""
+    path = extract_from_gcs(color, year, month)
+    df = pd.read_parquet(path)
+    write_bq(df)
+    number_of_rows = len(df)
+    del(df) # to free memory
+    return number_of_rows
+
+@flow(log_prints=True)
+def etl_parent_flow(color: str, year: int, months: list[int]) -> None:
+    total_rows_to_bq = 0
+    for month in months:
+        etl_web_to_gcs(color, year, month)
+        total_rows_to_bq += etl_gcs_to_bq(color, year, month)
+    print(f'Number of rows inserted into BigQuery: {total_rows_to_bq}')
+
+if __name__ == '__main__':
+    etl_parent_flow()
+```
+
+This will output something like this:
+
+```
+04:02:03.082 | INFO    | Task run 'write_bq-f3b17cf5-0' - Finished in state Completed()
+04:02:03.175 | INFO    | Flow run 'malachite-lorikeet' - Finished in state Completed()
+04:02:03.175 | INFO    | Flow run 'ingenious-koala' - Number of rows inserted into BigQuery: 14,851,920
+04:02:03.239 | INFO    | Flow run 'ingenious-koala' - Finished in state Completed('All states completed.')
+04:02:05.141 | INFO    | prefect.infrastructure.process - Process 'ingenious-koala' exited cleanly.
+```
+
+Answer: `14,851,920`
 
 ## Question 4. Github Storage Block
 

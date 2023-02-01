@@ -1,5 +1,6 @@
 pandas==1.5.2
 pandas-gbq==0.18.1
 prefect-gcp[cloud_storage]==0.2.3
+prefect-github
 protobuf==4.21.11
 pyarrow==10.0.1
