@@ -10,10 +10,14 @@ def fetch(dataset_url: str) -> pd.DataFrame:
     print(f'Data file has {len(df):,} rows')
     return df
 
-@task()
+@task(log_prints=True)
 def write_local(df: pd.DataFrame, color: str, dataset_file: str) -> Path:
     """Write DataFrame out locally as parquet file"""
-    path = Path(f'data/{color}/{dataset_file}.parquet')
+    print(f'Creating path...')
+    dir_path = Path(f'data/{color}')
+    dir_path.mkdir(parents=True, exist_ok=True)
+    print(f'Path {dir_path} created.')
+    path = Path(f'{dir_path}/{dataset_file}.parquet')
     df.to_parquet(path, compression='gzip')
     print(f'Writing {len(df):,} rows into {dataset_file}.parquet')
     return path
