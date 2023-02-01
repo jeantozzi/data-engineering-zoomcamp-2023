@@ -111,7 +111,7 @@ Hence, for this particular question (first of every month at 5am UTC), we'll hav
 
 To create, apply and run the deployment in question, we'll have the commands bellow:
 ```
-prefect deployment build flows/question_1.py:etl_web_to_gcs -n question_01 -q default --cron "0 5 1 * * --apply"
+prefect deployment build flows/question_1.py:etl_web_to_gcs -n question_01 -q default --cron "0 5 1 * *" --apply
 prefect agen start -q "default"
 ```
 
