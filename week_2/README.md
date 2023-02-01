@@ -113,7 +113,7 @@ To create, apply and run the deployment in question, we'll have the commands bel
 ```
 prefect deployment build flows/question_1.py:etl_web_to_gcs -n question_01 -q default --cron "0 5 1 * *"
 prefect deployment apply etl_web_to_gcs-deployment.yaml
-prefect agen start -q "default"
+prefect agent start -q "default"
 ```
 
 Answer: `0 5 1 * *`
