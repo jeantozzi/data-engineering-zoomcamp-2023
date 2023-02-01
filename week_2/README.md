@@ -4,13 +4,39 @@ The goal of this homework is to familiarise users with workflow orchestration an
 
 Quick Reference:
 
-- [Environment Setup](https://github.com/jeantozzi/data-engineering-zoomcamp-2023/tree/main/week_1#environment-setup)
+- [Environment Setup](https://github.com/jeantozzi/data-engineering-zoomcamp-2023/tree/main/week_2#environment-setup)
 - [Question 1 - Load January 2020 data](https://github.com/jeantozzi/data-engineering-zoomcamp-2023/tree/main/week_2#question-1-load-january-2020-data)
 - [Question 2 - Scheduling with Cron](https://github.com/jeantozzi/data-engineering-zoomcamp-2023/tree/main/week_2#question-2-scheduling-with-cron)
 - [Question 3 - Loading data to BigQuery](https://github.com/jeantozzi/data-engineering-zoomcamp-2023/tree/main/week_2#question-3-loading-data-to-bigquery)
 - [Question 4 - Github Storage Block](https://github.com/jeantozzi/data-engineering-zoomcamp-2023/tree/main/week_2#question-4-github-storage-block)
 - [Question 5 - Email or Slack notifications](https://github.com/jeantozzi/data-engineering-zoomcamp-2023/tree/main/week_2#question-5-email-or-slack-notifications)
 - [Question 6 - Secrets](https://github.com/jeantozzi/data-engineering-zoomcamp-2023/tree/main/week_2#question-6-secrets)
+
+## Environment Setup
+
+### Prefect, Virtual Environment and dependencies
+
+For this exercise, we'll be using a virtual environment to install all dependencies and Prefect, so we can execute the pipelines for each question.
+
+First, let's set up a virtual environment with `conda create -n zoomcamp-de-week-2 python=3.9`. (If you don't have conda installed, please check https://www.anaconda.com/products/distribution for mode details)
+
+Next, we'll activate the environment we created with `conda activate zoomcamp-de-week-2` and install all the dependencies listed in `requirements.txt` running `pip install -r requirements.txt`.
+
+You can run `prefect orion start` to access the webserver and check infos about flows and tasks.
+
+Prefect and all the required dependencies are installed. Local configurations-wise, we're good to go.
+
+### GCP
+
+As for GCP configuration, just follow the steps below: 
+
+- Log in to [GCP](https://console.cloud.google.com/)
+- Create a Project
+- Set up Cloud Storage
+- Set up BigQuery
+- Create a service account with the required policies to interact with both services
+
+Ok, now we're good to go. I promise. 😂
 
 ## Question 1. Load January 2020 data
 
@@ -24,6 +50,37 @@ How many rows does that dataset have?
 * 822,132
 
 ### Solution
+
+For this question, a GCS Block is required for Prefect to establish the connection.
+
+Edit `make_gcp_blocks.py` file inside `/blocks` folder and insert your own credentials.
+
+After that, you can run `python blocks/make_gcp_blocks.py`, so that the block for GCS is created. You can check them using the Orion UI.
+
+As for the script itself, you can check [/flows/question_1](https://github.com/jeantozzi/data-engineering-zoomcamp-2023/blob/main/week_2/flows/question_1.py) for more detailed information.
+
+The important part is to print the DataFrame length anywhere in the code, for example:
+
+```
+@task()
+def write_local(df: pd.DataFrame, color: str, dataset_file: str) -> Path:
+    """Write DataFrame out locally as parquet file"""
+    path = Path(f'data/{color}/{dataset_file}.parquet')
+    df.to_parquet(path, compression='gzip')
+    print(f'Writing {len(df):,} rows into {dataset_file}.parquet')
+    return path
+```
+
+This will output something like this:
+
+```
+01:21:47.024 | INFO    | Flow run 'huge-mantis' - Created task run 'write_local-f322d1be-0' for task 'write_local'
+01:21:47.025 | INFO    | Flow run 'huge-mantis' - Executing 'write_local-f322d1be-0' immediately...
+01:21:48.039 | INFO    | Task run 'write_local-f322d1be-0' - Writing 447,770 rows into green_tripdata_2020-01.parquet
+01:21:48.131 | INFO    | Task run 'write_local-f322d1be-0' - Finished in state Completed()
+```
+
+Answer: `447,770`
 
 ## Question 2. Scheduling with Cron
 
