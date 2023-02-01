@@ -57,7 +57,7 @@ Edit `make_gcp_blocks.py` file inside `/blocks` folder and insert your own crede
 
 After that, you can run `python blocks/make_gcp_blocks.py`, so that the block for GCS is created. You can check them using the Orion UI.
 
-As for the script itself, you can check [/flows/question_1](https://github.com/jeantozzi/data-engineering-zoomcamp-2023/blob/main/week_2/flows/question_1.py) for more detailed information.
+As for the script itself, you can check [/flows/question_1.py](https://github.com/jeantozzi/data-engineering-zoomcamp-2023/blob/main/week_2/flows/question_1.py) for more detailed information.
 
 The important part is to print the DataFrame length anywhere in the code, for example:
 
