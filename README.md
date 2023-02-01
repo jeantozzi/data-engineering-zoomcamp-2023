@@ -2,7 +2,7 @@
 
 ### Quick Reference
 - [Week 1: Introduction & Prerequisites](https://github.com/jeantozzi/data-engineering-zoomcamp-2023/tree/main/week_1)
-- Week 2: Workflow Orchestration
+- [Week 2: Workflow Orchestration](https://github.com/jeantozzi/data-engineering-zoomcamp-2023/tree/main/week_2)
 - Week 3: Data Warehouse
 - Week 4: Analytics Engineering
 - Week 5: Batch processing
