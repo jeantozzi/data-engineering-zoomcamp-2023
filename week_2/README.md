@@ -200,6 +200,31 @@ How many rows were processed by the script?
 
 ### Solution
 
+Edit `make_github_block.py` file inside `/blocks` folder and insert your own repository link.
+
+After that, you can run `python blocks/make_github_block.py`, so that the block for GCS is created. You can check them using the Orion UI.
+
+To create the deployment and apply it, we'll run `prefect deployment build week_2/flows/question_4.py:etl_web_to_gcs  -n github-deploy  -sb github/github  --path week_2/flows/  --apply` from the repository root folder.
+
+Next, it's necessary to have a agent running (`prefect agent start -q default`), so we can run the flow using the parameters listed in the question with the command below:
+
+`prefect deployment run 'etl-web-to-gcs/github-deploy' -p color='green' -p year=2020 -p month=11`
+
+As for the script itself, you can check [/flows/question_4.py](https://github.com/jeantozzi/data-engineering-zoomcamp-2023/blob/main/week_2/flows/question_1.py) for more detailed information.
+
+This will output something like this:
+
+```
+16:14:39.620 | INFO    | Flow run 'neat-carp' - Created task run 'write_local-09e9d2b8-0' for task 'write_local'
+16:14:39.621 | INFO    | Flow run 'neat-carp' - Executing 'write_local-09e9d2b8-0' immediately...
+16:14:39.681 | INFO    | Task run 'write_local-09e9d2b8-0' - Creating path...
+16:14:39.682 | INFO    | Task run 'write_local-09e9d2b8-0' - Path data/green created.
+16:14:39.912 | INFO    | Task run 'write_local-09e9d2b8-0' - Writing 88,605 rows into green_tripdata_2020-11.parquet
+16:14:39.946 | INFO    | Task run 'write_local-09e9d2b8-0' - Finished in state Completed()
+```
+
+Answer: `88,605`
+
 ## Question 5. Email or Slack notifications
 
 Q5. It’s often helpful to be notified when something with your dataflow doesn’t work as planned. Choose one of the options below for creating email or slack notifications.
