@@ -308,3 +308,6 @@ For this question, do as follows:
 
 ![secret_1](./images/secret_1.png)
 
+![secret_2](./images/secret_2.png)
+
+Answer: `8`
