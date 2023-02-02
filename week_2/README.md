@@ -144,7 +144,7 @@ Next, it's necessary to have a agent running (`prefect agent start -q default`),
 
 `prefect deployment run etl-parent-flow/question_03 -p color="yellow" -p year=2019 -p months=[2,3]`
 
-As for the script itself, you can check [/flows/question_3.py](https://github.com/jeantozzi/data-engineering-zoomcamp-2023/blob/main/week_2/flows/question_1.py) for more detailed information.
+As for the script itself, you can check [/flows/question_3.py](https://github.com/jeantozzi/data-engineering-zoomcamp-2023/blob/main/week_2/flows/question_3.py) for more detailed information.
 
 Setting a incrementary variable to keep track of the number of rows uploaded, so we can get the output for the answer:
 
@@ -210,7 +210,7 @@ Next, it's necessary to have a agent running (`prefect agent start -q default`),
 
 `prefect deployment run 'etl-web-to-gcs/github-deploy' -p color='green' -p year=2020 -p month=11`
 
-As for the script itself, you can check [/flows/question_4.py](https://github.com/jeantozzi/data-engineering-zoomcamp-2023/blob/main/week_2/flows/question_1.py) for more detailed information.
+As for the script itself, you can check [/flows/question_4.py](https://github.com/jeantozzi/data-engineering-zoomcamp-2023/blob/main/week_2/flows/question_4.py) for more detailed information.
 
 This will output something like this:
 
@@ -255,6 +255,44 @@ How many rows were processed by the script?
 
 ### Solution
 
+For Notifications, run `prefect orion start` and get into the UI.
+
+On the Prefect side, do as the images below:
+
+![notification_1](./images/notifications_1.png)
+
+![notification_2](./images/notifications_2.png)
+
+On the Slack side, you'll only need to follow the instructions from [this link](https://api.slack.com/messaging/webhooks).
+
+We'll be running the `question_4.py` script for this question as well, only changing the inputs for different data.
+
+As for pipeline, run the following commands:
+```
+prefect deployment build flows/question_4.py:etl_web_to_gcs -n question-5 -q default --apply
+
+prefect agent start -q default # in another terminal
+
+prefect deployment run 'etl-web-to-gcs/question-5' -p color='green' -p year=2019 -p month=4
+
+```
+This will output something like this:
+
+```
+00:21:52.672 | INFO    | Flow run 'melodic-puma' - Created task run 'write_local-09e9d2b8-0' for task 'write_local'
+00:21:52.673 | INFO    | Flow run 'melodic-puma' - Executing 'write_local-09e9d2b8-0' immediately...
+00:21:52.725 | INFO    | Task run 'write_local-09e9d2b8-0' - Creating path...
+00:21:52.726 | INFO    | Task run 'write_local-09e9d2b8-0' - Path data/green created.
+00:21:54.056 | INFO    | Task run 'write_local-09e9d2b8-0' - Writing 514,392 rows into green_tripdata_2019-04.parquet
+00:21:54.092 | INFO    | Task run 'write_local-09e9d2b8-0' - Finished in state Completed()
+```
+
+And the Notification:
+
+![notification_3](./images/notifications_3.png)
+
+Answer: `514,392`
+
 ## Question 6. Secrets
 
 Prefect Secret blocks provide secure, encrypted storage in the database and obfuscation in the UI. Create a secret block in the UI that stores a fake 10-digit password to connect to a third-party service. Once you’ve created your block in the UI, how many characters are shown as asterisks (*) on the next page of the UI?
@@ -265,3 +303,8 @@ Prefect Secret blocks provide secure, encrypted storage in the database and obfu
 - 10
 
 ### Solution
+
+For this question, do as follows:
+
+![secret_1](./images/secret_1.png)
+
