@@ -140,7 +140,7 @@ Make sure you have the parquet data files for Yellow taxi data for Feb. 2019 and
 
 We'll run `prefect deployment build flows/question_3.py:etl_parent_flow -n question_03 -q default --apply` to create and apply the deployment.
 
-Next, it's necessary to have a agent running (`prefect agent start -q default`), so we can run the flow using the parameters listed in the question with the command below:
+Next, it's necessary to have an agent running (`prefect agent start -q default`), so we can run the flow using the parameters listed in the question with the command below:
 
 `prefect deployment run etl-parent-flow/question_03 -p color="yellow" -p year=2019 -p months=[2,3]`
 
@@ -206,7 +206,7 @@ After that, you can run `python blocks/make_github_block.py`, so that the block 
 
 To create the deployment and apply it, we'll run `prefect deployment build week_2/flows/question_4.py:etl_web_to_gcs  -n github-deploy  -sb github/github  --path week_2/flows/  --apply` from the repository root folder.
 
-Next, it's necessary to have a agent running (`prefect agent start -q default`), so we can run the flow using the parameters listed in the question with the command below:
+Next, it's necessary to have an agent running (`prefect agent start -q default`), so we can run the flow using the parameters listed in the question with the command below:
 
 `prefect deployment run 'etl-web-to-gcs/github-deploy' -p color='green' -p year=2020 -p month=11`
 
