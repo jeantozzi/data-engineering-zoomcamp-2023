@@ -146,7 +146,7 @@ Next, it's necessary to have an agent running (`prefect agent start -q default`)
 
 As for the script itself, you can check [/flows/question_3.py](https://github.com/jeantozzi/data-engineering-zoomcamp-2023/blob/main/week_2/flows/question_3.py) for more detailed information.
 
-Setting a incrementary variable to keep track of the number of rows uploaded, so we can get the output for the answer:
+Setting an incrementary variable to keep track of the number of rows uploaded, so we can get the output for the answer:
 
 ```
 @flow(log_prints=True)
