@@ -30,7 +30,7 @@ Which tag has the following text? - *Write the image ID to the file*
 ### Solution
 
 Command:
-```
+```bash
 docker build --help | grep ID
 ```
 
@@ -57,7 +57,7 @@ How many python packages/modules are installed?
 ### Solution
 
 Command:
-```
+```bash
 docker run -it --entrypoint=/bin/bash python:3.9
 pip list
 ```
@@ -102,7 +102,7 @@ You only need to run `docker-compose up -d` while in the same folder as the `doc
 ### Step 3
 Now that the RDBMS and the GUI Client are running, we can run the python ingestor container. It will download the taxi data based on the URL and ingest into Postgres.
 Run the following commands:
-```
+```bash
 URL="https://github.com/DataTalksClub/nyc-tlc-data/releases/download/green/green_tripdata_2019-01.csv.gz"
 
 docker run -it \
@@ -137,7 +137,7 @@ Remember that `lpep_pickup_datetime` and `lpep_dropoff_datetime` columns are in 
 ### Solution
 
 Command:
-```
+```sql
 SELECT COUNT(1)
 FROM taxi_trips
 WHERE DATE_TRUNC('DAY', lpep_pickup_datetime) = CAST('2019-01-15' AS timestamp)
@@ -165,7 +165,7 @@ Use the pick up time for your calculations.
 ### Solution
 
 Command:
-```
+```sql
 SELECT CAST(lpep_pickup_datetime AS date)
 FROM taxi_trips
 ORDER BY trip_distance DESC
@@ -192,7 +192,7 @@ In 2019-01-01 how many trips had 2 and 3 passengers?
 ### Solution
 
 Command:
-```
+```sql
 SELECT COUNT(1)
 FROM taxi_trips
 WHERE DATE_TRUNC('DAY', lpep_pickup_datetime) = CAST('2019-01-01' AS timestamp)
@@ -228,7 +228,7 @@ Note: it's not a typo, it's `tip` , not `trip`
 ### Solution
 
 Command:
-```
+```sql
 SELECT zdo."Zone"
 FROM taxi_trips AS t
 	JOIN zones AS zpu
