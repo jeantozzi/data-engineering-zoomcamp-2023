@@ -61,7 +61,7 @@ As for the script itself, you can check [/flows/question_1.py](https://github.co
 
 The important part is to print the DataFrame length anywhere in the code, for example:
 
-```
+```python
 @task()
 def write_local(df: pd.DataFrame, color: str, dataset_file: str) -> Path:
     """Write DataFrame out locally as parquet file"""
@@ -110,7 +110,7 @@ Hence, for this particular question (first of every month at 5am UTC), we'll hav
 ```
 
 To create, apply and run the deployment in question, we'll have the commands bellow:
-```
+```bash
 prefect deployment build flows/question_1.py:etl_web_to_gcs -n question_01 -q default --cron "0 5 1 * *" --apply
 prefect agen start -q "default"
 ```
@@ -148,7 +148,7 @@ As for the script itself, you can check [/flows/question_3.py](https://github.co
 
 Setting an incrementary variable to keep track of the number of rows uploaded, so we can get the output for the answer:
 
-```
+```python
 @flow(log_prints=True)
 def etl_gcs_to_bq(color: str, year: int, month: int) -> int:
     """"Main ETL flow to load data into BigQuery"""
