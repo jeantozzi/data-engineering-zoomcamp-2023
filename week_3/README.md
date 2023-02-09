@@ -89,7 +89,7 @@ What is the count for fhv vehicle records for year 2019?
 
 ### Solution
 
-For this, let's simply the following query: 
+For this, let's simply run the following query: 
 
 ```sql
 SELECT COUNT(*)
@@ -132,7 +132,7 @@ How many records have both a blank (null) PUlocationID and DOlocationID in the e
 
 ### Solution
 
-For this, let's simply the following query: 
+For this, let's simply run the following query: 
 
 ```sql
 SELECT COUNT(*)
@@ -179,7 +179,7 @@ Use the BQ table you created earlier in your from clause and note the estimated 
 
 ### Solution
 
-Let's create a optmized (Partition + Cluster) table based on the BQ Table with the following query:
+Let's create an optimized (Partition + Cluster) table based on the BQ Table with the following query:
 
 ```sql
 CREATE OR REPLACE TABLE `dtc-de-zoomcamp-jt.dezoomcamp.fhv_rides_optimized`
