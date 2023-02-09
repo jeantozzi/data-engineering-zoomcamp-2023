@@ -54,7 +54,7 @@ prefect agent start -q default
 prefect orion start
 ```
 
-You can check the flow file [here](./flows/github_to_gcs.py).
+You can check the flow file [here](https://github.com/jeantozzi/data-engineering-zoomcamp-2023/blob/main/week_3/flows/github_to_gcs.py).
 
 Checking the GCS bucket, we have all the files there:
 
@@ -242,7 +242,7 @@ Note: Column types for all files used in an External Table must have the same da
 ### Solution
 
 For this question, we'll have to create a new flow for Prefect.<br>
-You can check the file [here](./flows/github_parquet_to_csv.py).
+You can check the file [here](https://github.com/jeantozzi/data-engineering-zoomcamp-2023/blob/main/week_3/flows/github_parquet_to_gcs.py).
 
 Let's run build, apply and run the Prefect deployment with the following commands:
 
