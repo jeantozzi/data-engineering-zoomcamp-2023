@@ -78,7 +78,7 @@ As for the BigQuery Table, we'll proceed with **ADD DATA > Source: Google Cloud 
 
 ![gcs_2](./images/gcs_2.png)
 
-Now we can continue! :D
+Now we can continue! 😃
 
 ## Question 1:
 What is the count for fhv vehicle records for year 2019?
