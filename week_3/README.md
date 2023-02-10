@@ -244,7 +244,7 @@ Note: Column types for all files used in an External Table must have the same da
 For this question, we'll have to create a new flow for Prefect.<br>
 You can check the file [here](https://github.com/jeantozzi/data-engineering-zoomcamp-2023/blob/main/week_3/flows/github_parquet_to_gcs.py).
 
-Let's run build, apply and run the Prefect deployment with the following commands:
+Let's build, apply and run the Prefect deployment with the following commands:
 
 ```bash
 # Building, applying and running a Prefect deployment
