@@ -54,7 +54,7 @@ prefect agent start -q default
 prefect orion start
 ```
 
-You can check the flow file [here](./flows/github_to_gcs.py).
+You can check the flow file [here](https://github.com/jeantozzi/data-engineering-zoomcamp-2023/blob/main/week_3/flows/github_to_gcs.py).
 
 Checking the GCS bucket, we have all the files there:
 
@@ -78,7 +78,7 @@ As for the BigQuery Table, we'll proceed with **ADD DATA > Source: Google Cloud 
 
 ![gcs_2](./images/gcs_2.png)
 
-Now we can continue! :D
+Now we can continue! 😃
 
 ## Question 1:
 What is the count for fhv vehicle records for year 2019?
@@ -89,7 +89,7 @@ What is the count for fhv vehicle records for year 2019?
 
 ### Solution
 
-For this, let's simply the following query: 
+For this, let's simply run the following query: 
 
 ```sql
 SELECT COUNT(*)
@@ -132,7 +132,7 @@ How many records have both a blank (null) PUlocationID and DOlocationID in the e
 
 ### Solution
 
-For this, let's simply the following query: 
+For this, let's simply run the following query: 
 
 ```sql
 SELECT COUNT(*)
@@ -179,7 +179,7 @@ Use the BQ table you created earlier in your from clause and note the estimated 
 
 ### Solution
 
-Let's create a optmized (Partition + Cluster) table based on the BQ Table with the following query:
+Let's create an optimized (Partition + Cluster) table based on the BQ Table with the following query:
 
 ```sql
 CREATE OR REPLACE TABLE `dtc-de-zoomcamp-jt.dezoomcamp.fhv_rides_optimized`
@@ -242,9 +242,9 @@ Note: Column types for all files used in an External Table must have the same da
 ### Solution
 
 For this question, we'll have to create a new flow for Prefect.<br>
-You can check the file [here](./flows/github_parquet_to_csv.py).
+You can check the file [here](https://github.com/jeantozzi/data-engineering-zoomcamp-2023/blob/main/week_3/flows/github_parquet_to_gcs.py).
 
-Let's run build, apply and run the Prefect deployment with the following commands:
+Let's build, apply and run the Prefect deployment with the following commands:
 
 ```bash
 # Building, applying and running a Prefect deployment
