@@ -1,12 +1,12 @@
 ## Week 4 Homework 
 
 Quick Reference:
-- General directions
-- Question 1
-- Question 2 
-- Question 3
-- Question 4
-- Question 5 
+- [General directions](https://github.com/jeantozzi/data-engineering-zoomcamp-2023/tree/main/week_4#general-directions)
+- [Question 1](https://github.com/jeantozzi/data-engineering-zoomcamp-2023/tree/main/week_4#question-1)
+- [Question 2](https://github.com/jeantozzi/data-engineering-zoomcamp-2023/tree/main/week_4#question-2)
+- [Question 3](https://github.com/jeantozzi/data-engineering-zoomcamp-2023/tree/main/week_4#question-3)
+- [Question 4](https://github.com/jeantozzi/data-engineering-zoomcamp-2023/tree/main/week_4#question-4)
+- [Question 5](https://github.com/jeantozzi/data-engineering-zoomcamp-2023/tree/main/week_4#question-5)
 
 ## General directions
 In this homework, we'll use the models developed during the week 4 videos and enhance the already presented dbt project using the already loaded Taxi data for fhv vehicles for year 2019 in our DWH.
@@ -83,7 +83,7 @@ Since we'll be using `fhv` data from now on, it's required to create a BigQuery 
 
 ![bq_1](./images/bq_1.png)
 
-After that, `stg_fhv_tripdata` must be created in dbt, using this [model]().
+After that, `stg_fhv_tripdata` must be created in dbt, using [this model](https://github.com/jeantozzi/data-engineering-zoomcamp-2023/blob/main/week_4/models/staging/stg_fhv_tripdata.sql).
 
 With the BigQuery view created, we can query for the result:
 
@@ -114,7 +114,7 @@ Run it via the CLI without limits (is_test_run: false) and filter records with p
 
 ### Solution
 
-We'll create the `fact_fhv_trips` BigQuery table using [this model]().
+We'll create the `fact_fhv_trips` BigQuery table using [this model](https://github.com/jeantozzi/data-engineering-zoomcamp-2023/blob/main/week_4/models/core/fact_fhv_trips.sql).
 
 With the BigQuery table created, we can query for the result:
 
