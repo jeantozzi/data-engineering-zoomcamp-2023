@@ -132,10 +132,5 @@ dmypy.json
 .tmp/
 *-deployment.yaml
 
-# Big files
-*.parquet
-*.csv
-*.json
-
 # Custom paths
 week_1/ny_taxi_postgres_data/
