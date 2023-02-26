@@ -1,12 +1,13 @@
 version: 2
 
 sources:
-  - name: staging
+  - name: production
     database: dtc-de-zoomcamp-jt
     schema: production
     tables:
       - name: green_tripdata
       - name: yellow_tripdata
+      - name: fhv_tripdata
 
 models:
     - name: stg_green_tripdata
