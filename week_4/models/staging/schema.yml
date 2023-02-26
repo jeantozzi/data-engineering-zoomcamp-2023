@@ -3,7 +3,7 @@ version: 2
 sources:
   - name: staging
     database: dtc-de-zoomcamp-jt
-    schema: trips_data_all
+    schema: production
     tables:
       - name: green_tripdata
       - name: yellow_tripdata
