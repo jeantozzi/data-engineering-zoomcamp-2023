@@ -5,6 +5,6 @@
 - [Week 2: Workflow Orchestration](https://github.com/jeantozzi/data-engineering-zoomcamp-2023/tree/main/week_2)
 - [Week 3: Data Warehouse](https://github.com/jeantozzi/data-engineering-zoomcamp-2023/tree/main/week_3)
 - [Week 4: Analytics Engineering](https://github.com/jeantozzi/data-engineering-zoomcamp-2023/tree/main/week_4)
-- Week 5: Batch processing
+- [Week 5: Batch processing](https://github.com/jeantozzi/data-engineering-zoomcamp-2023/tree/main/week_5)
 - Week 6: Streaming
 - Week 7, 8 & 9: Project
