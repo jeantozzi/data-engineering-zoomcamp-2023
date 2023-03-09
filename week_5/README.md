@@ -70,7 +70,7 @@ Output:
 [...]
 ```
 
-Answer: `24MB` (The closest)
+Answer: `24MB` (The closest one)
 
 ## Question 3: 
 
